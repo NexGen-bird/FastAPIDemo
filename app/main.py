@@ -15,9 +15,9 @@ def login(credentials: UserCredentials):
         raise HTTPException(status_code=401, detail=result["error"])
     return {"message": "Login successful", "data": result}
 
-# @app.post("/signup")
-# def signup(credentials: UserCredentials):
-#     result = signup_user(credentials.email, credentials.password)
-#     if "error" in result:
-#         raise HTTPException(status_code=400, detail=result["error"])
-#     return {"message": "Signup successful", "data": result}
+@app.post("/signup")
+def signup(credentials: UserCredentials):
+    result = signup_user(credentials.email, credentials.password)
+    if "error" in result:
+        raise HTTPException(status_code=400, detail=result["error"])
+    return {"message": "Signup successful", "data": result}
